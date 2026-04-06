@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Payment History | Municipal Tax Collection System{% endblock %}
+{% block page_name %}history{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h2 class="fw-bold mb-1">Payment History</h2>
+    <p class="text-muted mb-0">Track previous payments and view transaction references</p>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle">
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Property Code</th>
+                        <th>Taxpayer</th>
+                        <th>Tax Year</th>
+                        <th>Method</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Paid At</th>
+                    </tr>
+                </thead>
+                <tbody id="paymentHistoryBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

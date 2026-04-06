@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Municipal Tax Collection System{% endblock %}
+{% block page_name %}dashboard{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold mb-1">Dashboard</h2>
+        <p class="text-muted mb-0">Overview of taxpayers, properties, taxes, and payments</p>
+    </div>
+    <button class="btn btn-outline-primary d-none" id="loadReportsButton">Load Admin Reports</button>
+</div>
+
+<div class="row g-4 mb-4" id="summaryCards">
+    <div class="col-md-3">
+        <div class="card summary-card">
+            <div class="card-body">
+                <h6 class="text-muted">Properties</h6>
+                <h3 id="summaryProperties">0</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card summary-card">
+            <div class="card-body">
+                <h6 class="text-muted">Taxes / Taxpayers</h6>
+                <h3 id="summaryTaxes">0</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card summary-card">
+            <div class="card-body">
+                <h6 class="text-muted">Collection</h6>
+                <h3 id="summaryCollection">0</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card summary-card">
+            <div class="card-body">
+                <h6 class="text-muted">Pending</h6>
+                <h3 id="summaryPending">0</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-7">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Recent Payments</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Reference</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentPaymentsBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+                <h5 class="mb-3">Admin Report Summary</h5>
+                <div id="reportSummaryBox" class="small text-muted">
+                    Load the report to view collection month-wise data.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

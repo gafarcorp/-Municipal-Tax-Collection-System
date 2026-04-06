@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Tax Payment | Municipal Tax Collection System{% endblock %}
+{% block page_name %}payment{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h2 class="fw-bold mb-1">Tax Payment</h2>
+    <p class="text-muted mb-0">Review assessed taxes, penalties, and make online payments</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle">
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Year</th>
+                                <th>Base Tax</th>
+                                <th>Penalty</th>
+                                <th>Total Due</th>
+                                <th>Paid</th>
+                                <th>Balance</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="taxTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="mb-3">Make Payment</h5>
+                <form id="paymentForm">
+                    <div class="mb-3">
+                        <label class="form-label">Select Tax Record</label>
+                        <select class="form-select" id="paymentTaxId" required></select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Payment Amount</label>
+                        <input type="number" class="form-control" id="paymentAmount" min="1" step="0.01" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select" id="paymentMethod" required>
+                            <option value="Online">Online</option>
+                            <option value="UPI">UPI</option>
+                            <option value="Card">Card</option>
+                            <option value="Cash Counter">Cash Counter</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
